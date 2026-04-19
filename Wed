@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>💍 You're Invited 💍</h1>
+
+  <h2>Mohammed & Partner Name</h2>
+
+  <p class="date">August 29, 2026</p>
+
+  <div id="countdown"></div>
+
+  <p class="venue">
+    📍 Dubai Wedding Hall <br>
+    <a href="https://maps.google.com" target="_blank">View Location</a>
+  </p>
+
+  <button onclick="showRSVP()">RSVP</button>
+
+  <div id="rsvpForm" class="hidden">
+    <h3>Confirm Attendance</h3>
+    <input type="text" placeholder="Your Name"><br>
+    <select>
+      <option>Will Attend</option>
+      <option>Not Attending</option>
+    </select><br>
+    <button>Submit</button>
+  </div>
+</div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
+// Countdown
+var countDownDate = new Date("Aug 29, 2026 18:00:00").getTime();
+
+var x = setInterval(function () {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  document.getElementById("countdown").innerHTML =
+    days + " days left";
+
+}, 1000);
+
+// RSVP
+function showRSVP() {
+  document.getElementById("rsvpForm").classList.toggle("hidden");
+}
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #fdf6f0;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.date {
+  font-size: 20px;
+  margin: 20px;
+}
+
+#countdown {
+  font-size: 24px;
+  color: red;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
